@@ -1,5 +1,5 @@
-import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
-import type { FC } from 'react';
+import { Section, Cell, Image, List, Input, Tappable } from '@telegram-apps/telegram-ui';
+import { useState, type FC } from 'react';
 
 import { Link } from '@/components/Link/Link.tsx';
 import { Page } from '@/components/Page.tsx';
@@ -7,35 +7,45 @@ import { Page } from '@/components/Page.tsx';
 import tonSvg from './ton.svg';
 
 export const IndexPage: FC = () => {
+  const [value, setValue] = useState('');
+  const num = Number(value) || 0;
+
+// Example calculations based on input value
+  const field1 = num + 1;
+  const field2 = num * 2;
+  const field3 = num - 3;
+
+
   return (
     <Page back={false}>
       <List>
         <Section
-          header="Features"
-          footer="ПРИВІТ АЛЬОНА"
+          header="Розрахунок Податків"
+          footer="Розраховано з любов'ю"
         >
-          <Link to="/ton-connect">
-            <Cell
-              before={<Image src={tonSvg} style={{ backgroundColor: '#007AFF' }}/>}
-              subtitle="Connect your TON wallet"
-            >
-              TON Connect
-            </Cell>
-          </Link>
+          <Cell subtitle="Вставте потрібне значення">Init Data</Cell>
+       <Input 
+        status="focused" 
+        header="Input" 
+        placeholder="Write and clean me" 
+        value={value} 
+        onChange={e => setValue(e.target.value)} 
+        after={
+        <Tappable Component="div" style={{display: 'flex'}} 
+        onClick={() => setValue('')}>
+          <Image src={tonSvg} style={{ backgroundColor: '#007AFF' }}/>
+        </Tappable>} />
+
+        <Cell subtitle="Значення 1 (value + 1)">{field1}</Cell>
+        <Cell subtitle="Значення 2 (value * 2)">{field2}</Cell>
+        <Cell subtitle="Значення 3 (value - 3)">{field3}</Cell>
+        
         </Section>
         <Section
-          header="Application Launch Data"
-          footer="These pages help developer to learn more about current launch information"
+          header="Альона ваш менеджер з фінансів"
+          footer="Лінк на соціальну мережу"
         >
-          <Link to="/init-data">
-            <Cell subtitle="User data, chat information, technical data">Init Data</Cell>
-          </Link>
-          <Link to="/launch-params">
-            <Cell subtitle="Platform identifier, Mini Apps version, etc.">Launch Parameters</Cell>
-          </Link>
-          <Link to="/theme-params">
-            <Cell subtitle="Telegram application palette information">Theme Parameters</Cell>
-          </Link>
+          
         </Section>
       </List>
     </Page>
