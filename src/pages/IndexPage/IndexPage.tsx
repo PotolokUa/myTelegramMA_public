@@ -12,7 +12,7 @@ export const IndexPage: FC = () => {
       <List>
         <Section
           header="Features"
-          footer="ПРИВІТ АЛЬОНА /n You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects"
+          footer="ПРИВІТ АЛЬОНА"
         >
           <Link to="/ton-connect">
             <Cell
