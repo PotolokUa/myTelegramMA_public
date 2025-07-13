@@ -1,7 +1,7 @@
 import { Section, Cell, Image, List, Input, Tappable } from '@telegram-apps/telegram-ui';
 import { useState, type FC } from 'react';
 
-import { Link } from '@/components/Link/Link.tsx';
+// import { Link } from '@/components/Link/Link.tsx';
 import { Page } from '@/components/Page.tsx';
 
 import tonSvg from './ton.svg';
