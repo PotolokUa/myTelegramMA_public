@@ -11,9 +11,11 @@ export const IndexPage: FC = () => {
   const num = Number(value) || 0;
 
 // Example calculations based on input value
-  const field1 = num + 1;
-  const field2 = num * 2;
-  const field3 = num - 3;
+  const field1 = num * 0.05
+  const field2 = num * 0.01;
+  const field3 = 1760;
+  const field4 = field1 + field2 + field3;
+
 
 
   return (
@@ -36,9 +38,11 @@ export const IndexPage: FC = () => {
           <Image src={tonSvg} style={{ backgroundColor: '#007AFF' }}/>
         </Tappable>} />
 
-        <Cell subtitle="Значення 1 (value + 1)">{field1}</Cell>
-        <Cell subtitle="Значення 2 (value * 2)">{field2}</Cell>
-        <Cell subtitle="Значення 3 (value - 3)">{field3}</Cell>
+        <Cell subtitle="Єдиний податок (5%)">{field1}</Cell>
+        <Cell subtitle="Військовий збір (1%)">{field2}</Cell>
+        <Cell subtitle="ЄСВ (за 1 місяць)">{field3}</Cell>
+        <Cell subtitle="Разом податків">{field4}</Cell>
+
         
         </Section>
         <Section
